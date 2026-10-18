@@ -1,0 +1,44 @@
+@model List<Demo.Models.Feedback>
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List</title>
+</head>
+<body>
+    <div>
+        <h2>Student Feedback List</h2>
+        <table border="1">
+            <tr>
+                <th>Enrollment No</th>
+                <th>Subject Name</th>
+                <th>Subject</th>
+                <th>Rating</th>
+                <th>Comments</th>
+            </tr>
+            @if (Model != null)
+            {
+                foreach (var i in Model)
+                {
+                    <tr>
+                        <td>@i.EnrollmentNo</td>
+                        <td>@i.StudentName</td>
+                        <td>@i.Subject</td>
+                        <td>@i.Rating</td>
+                        <td>@i.Comments</td>
+                    </tr>
+                }
+            }
+        </table>
+        <br />
+        <p>@Html.ActionLink("Give Another Feedback", "Create", "Feedback")</p>
+        <br />
+        <br />
+        <p>@Html.ActionLink("Back to Home", "Index", "Feedback")</p>
+    </div>
+</body>
+</html>
